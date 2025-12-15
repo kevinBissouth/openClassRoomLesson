@@ -49,11 +49,13 @@ def band_update(request, id):
 
 def band_list(request):
     bands = Band.objects.all()
+    print(request.path)
     return render(request, 'listings/band_list.html', {'bands': bands})
 
 
 
 def about(request):
+    print(request.path)
     return render(request,'listings/about.html')
 
 
@@ -64,6 +66,7 @@ def email_send(request):
 
 
 def contact(request):
+    print(request.path)
     if request.method == 'POST':
         form = ContactUsForm(request.POST)
         if form.is_valid():
@@ -81,6 +84,7 @@ def contact(request):
 
 
 def listings(request):
+    print(request.path)
     titles = Listing.objects.all()
     return render(request,'listings/listings.html', {'titles':titles})
 

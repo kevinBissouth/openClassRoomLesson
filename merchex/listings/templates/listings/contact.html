@@ -1,12 +1,18 @@
 {% extends 'listings/base.html' %}
 
 {% block content %}
-    <h1>Contactez Nous</h1>
-    <p>Nous somme la pour vous aider</p>
+    <div class="h2">
+        <h1 class="h1">Contactez Nous</h1>
+    </div> 
+    <div class="ennonce">   
+        <h2>Nous somme la pour vous aider</h2>
+    </div>
 
     <form action="" method="post" novalidate>
         {% csrf_token %}
-        {{form.as_p }}
-        <input type="submit" value="Soumettre">
+        <div class="formList">
+            {{form.as_p }}
+            <input type="submit" value="Soumettre" class="btnsoum">
+        </div>    
     </form>
 {% endblock %}

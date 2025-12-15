@@ -1,12 +1,20 @@
 {% extends 'listings/base.html' %}
 
 {% block content %}
-    <h1>Voila mes albums  </h1>
-    <p>
-        <ul>
-            {% for tit in titles %}
-                    <li><a href="{% url 'list-detail' tit.id %}">{{tit.title}}</a></li>
-            {% endfor %}
-        </ul>
-    </p>
+    <div class="h2">
+        <h1 class="h1">Voila mes albums  </h1>
+    </div>
+
+    <div class="list">
+        <p>
+            <ul>
+                {% for tit in titles %}
+                <div class="listInt">
+                        <li><a href="{% url 'list-detail' tit.id %}">{{tit.title}}</a></li>
+                </div>
+                <hr style="margin-right: 30px;"> 
+                {% endfor %}
+            </ul>
+        </p>
+    </div>    
 {% endblock %}

@@ -12,11 +12,13 @@
 </head>
 <body>
     <nav class="nav">
-        <a href="{% url 'band-list' %}">Groups</a>
-        <a href="{% url 'list' %}">Listing</a>
-        <a href="{% url 'about-us' %}">About us</a>
-        <a href="{% url 'contact-us' %}">Contact Us</a>
+        <h2 class="merchex">Merchex</h2>
+        <a href="{% url 'band-list' %}" class="lien {% if request.path == '/bands/' %} border-b-2  lienActu {% endif %} href="{% url 'band-list' %}" ">Groups</a>
+        <a href="{% url 'list' %}" class="lien {% if request.path == '/listings/' %} border-b-2  lienActu {% endif %} href="{% url 'list' %}" ">Listing</a>
+        <a href="{% url 'about-us' %}" class="lien {% if request.path == '/about-us/' %} border-b-2  lienActu {% endif %} href="{% url 'about-us' %}" ">About us</a>
+        <a href="{% url 'contact-us' %}" class="lien {% if request.path == '/contact-us/' %} border-b-2  lienActu {% endif %} href="{% url 'contact-us' %}" ">Contact Us</a>
     </nav>
+    <hr class="hr1">
     {% block content %}
 
     {% endblock %}

@@ -1,16 +1,32 @@
 {% extends 'listings/base.html' %}
 
 {% block content %}
-    <h1>Hello Django!</h1>
-    <a href="{% url 'band-create' %}">Créer un nouveau groupe</a>
-
-    <h2>Mes groupes préférés sont </h2>
-    
-    <div class="list">
-        <ul>
-            {% for band in bands%}
-                <li><a href="{% url 'band-detail' band.id %}">{{band.name}}</a>-<a href="{% url 'band-update' band.id %}">[modifier]</a>- <a href="{% url 'band-delete' band.id %}">[Supprimer]</a><li>
-            {% endfor %}
-        </ul>
+    <div class="h2">
+        <h1 class="h1">Hello Django!</h1>
     </div>    
+
+    <div class="btn-create1">
+        <a href="{% url 'band-create' %}" class="btn-create">Créer un nouveau groupe</a>
+    </div>
+
+    <div class="list1">
+            <div class="ennonce">
+                <h2 >Mes groupes préférés sont </h2>
+            </div>
+
+            <div class="list">
+                <ul>
+                    {% for band in bands%}
+                        <div class="listInt">
+                            <li><a href="{% url 'band-detail' band.id %}">{{band.name}}</a><li>
+                            <div class="listAct">    
+                                <a class="btn-act btn-mod" href="{% url 'band-update' band.id %}">Modifier</a>
+                                <a class="btn-act btn-sup" href="{% url 'band-delete' band.id %}">Supprimer</a>
+                            </div>        
+                        </div>     
+                        <hr style="margin-right: 30px;">   
+                    {% endfor %}
+                </ul>
+            </div>
+    <div>            
 {% endblock %}
