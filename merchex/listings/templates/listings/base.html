@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merchex</title>
+    <link rel="stylesheet" href="{% static 'listings/styles.css' %}">
+    
+</head>
+<body>
+    <nav class="nav">
+        <a href="{% url 'band-list' %}">Groups</a>
+        <a href="{% url 'list' %}">Listing</a>
+        <a href="{% url 'about-us' %}">About us</a>
+        <a href="{% url 'contact-us' %}">Contact Us</a>
+    </nav>
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>

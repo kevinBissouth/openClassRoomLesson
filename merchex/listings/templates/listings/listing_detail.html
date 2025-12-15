@@ -1,0 +1,21 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+    <h1>Mon albums  </h1>
+    <p>
+        <h3>{{list.title}}</h3>
+        <ul>
+            <li>Année : {{list.year}}</li>
+            <li>Type : {{list.get_type_display}}</li>
+            <li>En solde : {{list.sold | yesno}}</li>
+            <li>Groupes <a href="">{{list.band}}</a></li>
+        </ul>
+        <p>{{list.description}}</p>
+    </p>
+
+    <p>{{ band.biography }}</p>
+
+    {% comment %} <a href="{% url 'band-update' band.id %}">Modifier ce groupe</a> {% endcomment %}
+  
+    <a href="{% url 'band-list' %}">Retourner à la liste des groupes</a>
+{% endblock %}
