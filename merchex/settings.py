@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#%x2b8o-efb$i^-m4x1@fsc25+@n#*yeusawy0q+f^qhd-m-(@'
+# SECRET_KEY = 'django-insecure-#%x2b8o-efb$i^-m4x1@fsc25+@n#*yeusawy0q+f^qhd-m-(@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
@@ -37,8 +37,18 @@ SECRET_KEY = 'django-insecure-#%x2b8o-efb$i^-m4x1@fsc25+@n#*yeusawy0q+f^qhd-m-(@
 # ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "127.0.0.1").split(",")
 
 DEBUG = os.environ.get("DJANGO_DEBUG", "True") == "True"
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "*").split(",")
+# SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "unsafe-dev-key")
+# ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "*").split(",")
+
+# DEBUG = os.environ.get("DJANGO_DEBUG", "True") == "True"
+
+# SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "unsafe-dev-key")
+
+ALLOWED_HOSTS = os.environ.get(
+    "DJANGO_ALLOWED_HOSTS",
+    "127.0.0.1,localhost"
+).split(",")
 
 # DATABASES = {
 #     "default": {
@@ -57,10 +67,22 @@ DATABASES = {
         "NAME": os.environ.get("PGDATABASE"),
         "USER": os.environ.get("PGUSER"),
         "PASSWORD": os.environ.get("PGPASSWORD"),
-        "HOST": os.environ.get("PGHOST"),  # PRIVATE DOMAIN
+        "HOST": os.environ.get("PGHOST"),   # Railway private host
         "PORT": os.environ.get("PGPORT", "5432"),
     }
 }
+
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": os.environ.get("PGDATABASE"),
+#         "USER": os.environ.get("PGUSER"),
+#         "PASSWORD": os.environ.get("PGPASSWORD"),
+#         "HOST": os.environ.get("PGHOST"),  # PRIVATE DOMAIN
+#         "PORT": os.environ.get("PGPORT", "5432"),
+#     }
+# }
 
 
 # DATABASES = {
@@ -89,6 +111,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
