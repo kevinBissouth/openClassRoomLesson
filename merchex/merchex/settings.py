@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/6.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-#%x2b8o-efb$i^-m4x1@fsc25+@n#*yeusawy0q+f^qhd-m-(@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -52,6 +52,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
+
 ROOT_URLCONF = 'merchex.urls'
 
 TEMPLATES = [
@@ -75,10 +77,28 @@ WSGI_APPLICATION = 'merchex.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
+os.environ.setdefault("PGDATABASE", "merchexdb")
+os.environ.setdefault("PGUSER", "merchexadmin")
+os.environ.setdefault("PGPASSWORD", "merchexAdmin")
+os.environ.setdefault("PGHOST", "localhost")
+os.environ.setdefault("PGPORT", "5432")
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'merchexdb',
+        'USER': 'merchexadmin',
+        'PASSWORD': 'merchexAdmin',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -117,8 +137,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
+# STATIC_URL = 'static/'
+
+# STATICFILES_DIRS = [
+#     "./merchex/static",
+# ]
+
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
-    "./merchex/static",
-]
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
