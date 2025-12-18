@@ -1,0 +1,146 @@
+
+body{
+    background: linear-gradient(150deg,blue,green);
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
+    color: white ;
+    
+}
+
+.h2 {
+    background: linear-gradient(90deg,black, grey);
+    background-clip: text;
+    text-align: center;
+    font-size: 25px;
+}
+/* .btn-create1 {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+} */
+
+.ennonce{
+    width: 100%;
+    text-align: center;
+}
+
+li{
+    color: white;
+}
+
+ul{
+    list-style: none;
+    font-size: 20px;
+}
+
+.list{
+    border: 2px solid black;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.listAct{
+    display: flex;
+    gap: 15px;
+}
+
+.btn-act{
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 25px;
+    color: white;
+}
+
+.btn-mod:hover{
+    background: linear-gradient(126deg, yellow,grey);
+}
+
+.formList {
+        border: 2px solid black;
+        border-radius: 25px;
+        margin-left:220px;
+        margin-right: 220px;
+        padding-left: 30px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+}
+
+.formList p{
+    font-size: 20px;
+}
+
+/* .formList input{
+    padding: 5px 10px;
+} */
+
+.btn-sup:hover{
+    background: linear-gradient(126deg, red,grey);
+}
+
+.btn-create{
+    background: linear-gradient(126deg, black, grey);
+    padding: 15px;
+    border-radius: 25px;
+    color: white;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.btnsoum {
+        background: linear-gradient(126deg, black, grey);
+        padding: 10px 15px;
+        border-radius: 15px;
+        color: white;
+}
+
+.hr1 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.merchex {
+    position: absolute;
+    left: 50px;
+}
+
+.nav {
+    display: flex;
+    justify-content: end;
+    padding: 5px;
+    padding-top: 10px;
+    align-items: center;
+    color: white;
+}
+
+.listInt{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 30px;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.lien {
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.lien:hover{
+    background: linear-gradient(126deg, black, grey);
+    border-radius: 25px;
+    border-bottom: 1px black;
+}
+
+.lienActu {
+    background: linear-gradient(126deg, black, grey);
+    border-radius: 25px;
+    cursor: pointer;
+}
