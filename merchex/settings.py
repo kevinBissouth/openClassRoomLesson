@@ -154,11 +154,11 @@ WSGI_APPLICATION = 'merchex.wsgi.application'
 # }
 
 
-os.environ.setdefault("PGDATABASE", "merchexdb")
-os.environ.setdefault("PGUSER", "merchexadmin")
-os.environ.setdefault("PGPASSWORD", "merchexAdmin")
-os.environ.setdefault("PGHOST", "localhost")
-os.environ.setdefault("PGPORT", "5432")
+# os.environ.setdefault("PGDATABASE", "merchexdb")
+# os.environ.setdefault("PGUSER", "merchexadmin")
+# os.environ.setdefault("PGPASSWORD", "merchexAdmin")
+# os.environ.setdefault("PGHOST", "localhost")
+# os.environ.setdefault("PGPORT", "5432")
 
 # DATABASES = {
 #     'default': {
