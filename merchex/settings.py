@@ -35,16 +35,27 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 DEBUG = os.environ.get("DJANGO_DEBUG", "True") == "True"
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "127.0.0.1").split(",")
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "postgres.railway.internal").split(",")
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": os.environ.get("PGDATABASE", "railway"),
+#         "USER": os.environ.get("PGUSER", "postgres"),
+#         "PASSWORD": os.environ.get("PGPASSWORD", ""),
+#         "HOST": os.environ.get("PGHOST", "localhost"),
+#         "PORT": os.environ.get("PGPORT", "5432"),
+#     }
+# }
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("PGDATABASE", "railway"),
-        "USER": os.environ.get("PGUSER", "postgres"),
-        "PASSWORD": os.environ.get("PGPASSWORD", ""),
-        "HOST": os.environ.get("PGHOST", "localhost"),
-        "PORT": os.environ.get("PGPORT", "5432"),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('PGDATABASE', 'railway'),
+        'USER': os.environ.get('PGUSER', 'postgres'),
+        'PASSWORD': os.environ.get('PGPASSWORD', ''),
+        'HOST': os.environ.get('PGHOST', 'localhost'),
+        'PORT': os.environ.get('PGPORT', '5432'),
     }
 }
 
