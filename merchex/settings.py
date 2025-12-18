@@ -11,13 +11,14 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 import os
 from pathlib import Path
+# from decouple import config
 # import dj_database_url
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-# BASE_DIR = Path(__file__).resolve().parent.parent
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 
@@ -37,7 +38,7 @@ SECRET_KEY = 'django-insecure-#%x2b8o-efb$i^-m4x1@fsc25+@n#*yeusawy0q+f^qhd-m-(@
 
 DEBUG = os.environ.get("DJANGO_DEBUG", "True") == "True"
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "postgres.railway.internal").split(",")
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "*").split(",")
 
 # DATABASES = {
 #     "default": {
@@ -50,27 +51,28 @@ ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "postgres.railway.interna
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.environ.get('PGDATABASE', 'railway'),
-#         'USER': os.environ.get('PGUSER', 'postgres'),
-#         'PASSWORD': os.environ.get('PGPASSWORD', ''),
-#         'HOST': os.environ.get('PGHOST', 'localhost'),
-#         'PORT': os.environ.get('PGPORT', '5432'),
-#     }
-# }
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("POSTGRES_DB"),
-        "USER": os.environ.get("POSTGRES_USER"),
-        "PASSWORD": os.environ.get("POSTGRES_PASSWORD"),
-        "HOST": os.environ.get("PGHOST"),
-        "PORT": os.environ.get("PGPORT"),
+        "NAME": os.environ.get("PGDATABASE"),
+        "USER": os.environ.get("PGUSER"),
+        "PASSWORD": os.environ.get("PGPASSWORD"),
+        "HOST": os.environ.get("PGHOST"),  # PRIVATE DOMAIN
+        "PORT": os.environ.get("PGPORT", "5432"),
     }
 }
+
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": config("PGDATABASE"),
+#         "USER": config("PGUSER"),
+#         "PASSWORD": config("PGPASSWORD"),
+#         "HOST": config("PGHOST"),
+#         "PORT": config("PGPORT", default="5432"),
+#     }
+# }
 
 
 
